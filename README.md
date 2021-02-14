@@ -3,7 +3,7 @@
 This example shows how you can get your Feather huzzah connected to a server and how you can get real time feedback from multiple devises using web sockets.
 ## Setup
 
-Make sure you have node.js installed. Run npm server.js to start the server.
+Make sure you have node.js installed. Run node server.js to start the server.
 
 Create Adafruit IO account, create a new feed, and replace all the keys (in caps) in server.js
 
@@ -17,3 +17,6 @@ npm install
 
 How to run the project
 
+```
+node server.js
+```
