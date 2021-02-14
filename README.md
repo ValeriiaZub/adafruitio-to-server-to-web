@@ -8,8 +8,7 @@ Make sure you have node.js installed. Run node server.js to start the server.
 Create Adafruit IO account, create a new feed, and replace all the keys (in caps) in server.js
 
 Install all the project dependencies 
-
-#install dependaces
+## install dependaces
 ```
 npm install 
 ```
