@@ -14,7 +14,7 @@ let socket;
 function setup() {
 
      //method connects user to the server over web sockets 
-     socket = io(window.location, {
+     socket = io(window.location.origin, {
        path: "/light/socket.io"
      });
      //The infomation recieved over web sockets with
