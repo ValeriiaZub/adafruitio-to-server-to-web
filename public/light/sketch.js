@@ -14,7 +14,7 @@ let socket;
 function setup() {
 
      //method connects user to the server over web sockets 
-     socket = io();
+     socket = io("/light");
      //The infomation recieved over web sockets with
      //the channel name "update" -> run this code
      socket.on('update', ({data}) => {
