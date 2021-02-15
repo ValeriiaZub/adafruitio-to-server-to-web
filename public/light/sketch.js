@@ -7,34 +7,23 @@ let radius = 0; // radius of the base circle
 let inter = 0.05; // difference of base radii of two consecutive blobs
 let maxNoise = 700; // maximal  value for the parameter "noisiness" for the blobs
 let color = 1;
-let socket;
 
 //let noiseProg = (x) => (x);
 
 function setup() {
 
-     //method connects user to the server over web sockets 
-     socket = io(window.location.origin, {
-       path: "/light/socket.io"
-     });
-     //The infomation recieved over web sockets with
-     //the channel name "update" -> run this code
-     socket.on('update', ({data}) => {
-        //  console.log(msg);
-        //  var p = document.createElement('p');
-        //  //The JSON.stringify() method converts a JavaScript object or value to a JSON string,
-        //  var text = document.createTextNode(JSON.stringify(msg));
-        //  p.appendChild(text);
-        //  messages.appendChild(p);
-
-        if (data== 1){
-            color = 1;
-        }else {
-            color = 0;
-        }
-     });
-
-     // socket = io.connect('http://localhost:3000');
+  //method connects user to the server over web sockets 
+  setInterval(() => {
+  fetch("/light/update")
+    .then((res) => res.json())
+    .then(({data}) => {
+      if (data== 1){
+        color = 1;
+      }else {
+        color = 0;
+      }
+    })
+  }, 1000);
 
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 1);
