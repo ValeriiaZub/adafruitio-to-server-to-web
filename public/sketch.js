@@ -6,25 +6,51 @@ let n = 100; // total number of blobs
 let radius = 0; // radius of the base circle
 let inter = 0.05; // difference of base radii of two consecutive blobs
 let maxNoise = 700; // maximal  value for the parameter "noisiness" for the blobs
+let color = 1;
+let socket;
 
 //let noiseProg = (x) => (x);
 
 function setup() {
+
+     //method connects user to the server over web sockets 
+     socket = io();
+     //The infomation recieved over web sockets with
+     //the channel name "update" -> run this code
+     socket.on('update', ({data}) => {
+        //  console.log(msg);
+        //  var p = document.createElement('p');
+        //  //The JSON.stringify() method converts a JavaScript object or value to a JSON string,
+        //  var text = document.createTextNode(JSON.stringify(msg));
+        //  p.appendChild(text);
+        //  messages.appendChild(p);
+
+        if (data== 1){
+            color = 1;
+        }else {
+            color = 0;
+        }
+     });
+
+     // socket = io.connect('http://localhost:3000');
+
   createCanvas(windowWidth, windowHeight);
   colorMode(HSB, 1);
 	angleMode(DEGREES);
-  noFill();
+    noFill();
 	//noLoop();
 	kMax = random(0.6, 1.0);
 	noStroke();
 }
 
 function draw() {
+
+
   background(0, 0, 0);
   let t = frameCount/100;
   for (let i = n; i > 0; i--) {
 		let alpha = 1 - (i / n);
-		fill((alpha/9 + 0.01)%1, 1, 1, alpha);
+		fill((alpha/9 + 0.01)%1, color, 1, alpha);
 		let size = radius + i * inter;
 		let k = kMax * sqrt(i/n);
 		let noisiness = maxNoise * (i / n);

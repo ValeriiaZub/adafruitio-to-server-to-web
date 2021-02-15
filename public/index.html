@@ -5,34 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
-
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/p5.min.js"></script> -->    
-    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.2.0/lib/addons/p5.sound.min.js"></script> -->
-    <!-- <script type="text/javascript" src="sketch.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/addons/p5.sound.js"></script>
+    <script src="sketch.js"></script>
     <title>Document</title>
 </head>
-<body>
-    <h1>hello</h1>
-    <h1>wazup</h1>
+<body style="margin: 0; padding: 0; overflow: hidden; align-self: center;">
+    <!--
     <div id="messages">
-
-    </div>
-    <script>
-        //method connects user to the server over web sockets 
-        var socket = io();
-        var messages = document.getElementById("messages");
-        //The infomation recieved over web sockets with
-        //the channel name "update" -> run this code
-        socket.on('update', (msg) => {
-            console.log(msg);
-            var p = document.createElement('p');
-            //The JSON.stringify() method converts a JavaScript object or value to a JSON string,
-            var text = document.createTextNode(JSON.stringify(msg));
-            p.appendChild(text);
-            messages.appendChild(p);
-        });
-
-        // socket = io.connect('http://localhost:3000');
-    </script>
+    </div> -->
 </body>
 </html>
