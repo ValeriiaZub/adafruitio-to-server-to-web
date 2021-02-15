@@ -10,7 +10,7 @@ var server = app.listen(3000, () => {
 
 let data = "0"
 
-app.get("/update", (req, res) => {
+app.get("update", (req, res) => {
     res.json({ data });
 })
 
