@@ -8,10 +8,10 @@ var server = app.listen(3000, () => {
     console.log('listening on *:3000');
 });
 
-let data = "0"
+let data = "1";
 
-app.get("update", (req, res) => {
-    res.json({ data });
+app.get("/light/update", (req, res) => {
+    res.json({ data, ran: Math.random() });
 })
 
 
