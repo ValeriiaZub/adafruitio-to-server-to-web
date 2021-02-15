@@ -10,7 +10,9 @@ var server = app.listen(3000, () => {
 });
 
 //listening for web socket connections
-var io = socket(server);
+var io = socket(server, {
+    path: "/light/"
+});
 
 //on a client connecting 
 io.on('connection', (socket) => {
